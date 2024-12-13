@@ -1,0 +1,11 @@
+{
+    "name": "project",
+    "version": "1.0.0",
+    "scripts": {
+      "start": "npm run dev-server & npm run dev-client",
+      "dev-server": "cd touragency && npm start",
+      "dev-client": "cd front_touragency && npm start"
+    },
+    "devDependencies": {}
+  }
+  
