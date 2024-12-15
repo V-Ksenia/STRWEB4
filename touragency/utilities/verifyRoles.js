@@ -22,7 +22,7 @@ export const verifyUser = (req, res, next) => {
 
     try {
         const user = jwt.verify(token, process.env.JWT); 
-        if (user.id === req.params.id || user.isAdmin) {
+        if (user.id == req.params.id || user.isAdmin) {
             req.user = user;
             next();
         } else {

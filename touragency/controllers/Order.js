@@ -11,26 +11,27 @@ export const getAllOrders = async (req, res) => {
 };
 
 export const getAllUserOrders = async (req, res) => {
-    try {
-      const orders = await Order.find({ user: req.params.id }).populate("tour user");
-  
-      if (!orders.length) {
-        return res.status(404).json({ error: "No orders found for this user" });
-      }
-      res.json(orders);
-    } catch (error) {
-      res.status(500).json({ error: error.message });
+  try {
+    const orders = await Order.find({ user: req.params.id }).populate(
+      "tour user"
+    );
+
+    if (!orders.length) {
+      return res.status(404).json({ error: "No orders found for this user" });
     }
-  };
-  
+    res.json(orders);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
 
 export const getOrderById = async (req, res) => {
   try {
     const order = await Order.findById(req.params.id).populate("tour user");
     if (!order) return res.status(404).json({ error: "Order not found" });
-    if (order.user._id != req.user.id || req.user.isAdmin) {
-        return res.status(403).json({ error: "Order: Access denied" });
-      }
+    if (order.user.id !== req.user.id && !req.user.isAdmin) {
+      return res.status(403).json({ error: "Order: Access denied" });
+    }
     res.json(order);
   } catch (error) {
     res.status(500).json({ error: error.message });

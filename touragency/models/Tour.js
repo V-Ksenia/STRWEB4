@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import Order from "./Order.js";
 
 const TourSchema = new mongoose.Schema({
     price: {

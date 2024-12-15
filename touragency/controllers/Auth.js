@@ -53,7 +53,7 @@ export const login = async (req, res, next) => {
     const token = jwt.sign(
       { id: user._id, isAdmin: user.isAdmin },
       process.env.JWT,
-      { expiresIn: "1h" }
+      { expiresIn: "24h" }
     );
     const { password, isAdmin, ...otherDetails } = user._doc;
     res
@@ -62,15 +62,14 @@ export const login = async (req, res, next) => {
       })
       .status(200)
       .json({ details: { ...otherDetails }, isAdmin });
-    
   } catch (err) {
     res.status(500).json({ message: "Something went wrong" });
   }
 };
 
 export const logout = (req, res) => {
-    res
-      .clearCookie("accessToken", { httpOnly: true })
-      .status(200)
-      .json({ message: "Logout successful" });
-  };
+  res
+    .clearCookie("accessToken", { httpOnly: true })
+    .status(200)
+    .json({ message: "Logout successful" });
+};

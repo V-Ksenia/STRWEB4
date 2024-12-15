@@ -14,9 +14,9 @@ export const getReviewById = async (req, res) => {
     const review = await Review.findById(req.params.id).populate("user");
     if (!review) return res.status(404).json({ error: "Review not found" });
     if (review.user._id != req.user.id) {
-        return res.status(403).json({ error: "Access denied" });
-      }
-  
+      return res.status(403).json({ error: "Access denied" });
+    }
+
     res.json(review);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -28,7 +28,7 @@ export const createReview = async (req, res) => {
     if (!req.user) return res.status(401).json({ error: "Unauthorized" });
     const newReview = await Review.create({
       ...req.body,
-      user: req.user._id,
+      user: req.user.id,
     });
     res.status(201).json(newReview);
   } catch (error) {
@@ -38,19 +38,21 @@ export const createReview = async (req, res) => {
 
 export const updateReview = async (req, res) => {
   try {
-    const review = await Review.findById(req.params.id, req.body, {
-      new: true,
-    });
+    const review = await Review.findById(req.params.id);
 
     if (!review) return res.status(404).json({ error: "Review not found" });
 
-    if (review.user._id != req.user.id) {
+    if (review.user.toString() !== req.user.id) {
       return res.status(403).json({ error: "Access denied" });
     }
 
-    await review.save();
+    review.title = req.body.title || review.title;
+    review.review = req.body.reviewDescr || review.review;
+    review.rating = req.body.rating || review.rating;
 
-    res.json(review);
+    const updatedReview = await review.save();
+
+    res.json(updatedReview);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -63,7 +65,7 @@ export const deleteReview = async (req, res) => {
     if (!deletedReview)
       return res.status(404).json({ error: "Review not found" });
 
-    if (deletedReview.user._id != req.user.id) {
+    if (deletedReview.user.toString() != req.user.id) {
       return res.status(403).json({ error: "Access denied" });
     }
 
