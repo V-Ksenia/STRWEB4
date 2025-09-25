@@ -1,0 +1,76 @@
+.tours {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.searchForm {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: rgb(238,236,233);
+    border-radius: 30px;
+    padding: 10px 20px 10px 20px;
+}
+
+.searchForm input{
+    background-color: rgb(238,236,233);
+    border: 0.2px solid rgb(200, 199, 198);
+    margin-left: 10px;
+    text-align: center;
+    width: 100px;
+    border-radius: 20px;
+}
+
+.searchForm label {
+    font-weight: bold;
+}
+
+.searchForm select {
+    text-align: center;
+    border: none;
+    background-color: rgb(238,236,233);
+}
+
+.toursContainer {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 100px 20px 200px;
+    gap: 100px;
+    margin-bottom: 40px;
+}
+.toursContainer>div>a {
+    border: 1px solid rgb(212, 212, 212);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 22px;
+    height: 50px;
+    text-decoration: none;
+    color: rgb(44, 44, 44);
+    font-weight: bold;
+}
+
+.toursContainer>div>a:hover{
+    color: rgb(112, 112, 112);
+}
+
+.specTour {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    color: rgb(254, 254, 254);
+    height: 250px;
+}
+
+.toursContainer>div {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 300px;
+}
+.toursContainer>div:hover{
+    transform: scale(1.1);
+}

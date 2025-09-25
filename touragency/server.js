@@ -9,6 +9,7 @@ import tourRoute from "./routes/Tour.js";
 import orderRoute from "./routes/Order.js";
 import reviewRoute from "./routes/Review.js";
 import cookieParser from 'cookie-parser';
+import passport from "passport";
 
 
 const app = express();
@@ -36,6 +37,8 @@ app.use(cors({
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(express.static('images'));
+app.use(passport.initialize());
 
 // Подключение роутеров
 app.use("/api/auth", authRoute);

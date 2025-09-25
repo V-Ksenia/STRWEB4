@@ -1,0 +1,33 @@
+.tourDetail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tourDetail p {
+    font-size: 20px;
+}
+
+.mapWeather {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    padding: 20px;
+    background-color: rgba(225, 221, 204, 0.374);
+    border-radius: 20px;
+}
+
+.tourDetail button {
+    margin: 40px 0 20px 0;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: none;
+}
+
+.tourDetail button:hover {
+    background-color: rgb(171, 171, 171);
+    color: rgb(104, 104, 104);
+    cursor: pointer;
+} 

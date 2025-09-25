@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+
 const UserSchema = new mongoose.Schema(
   {
     username: {
@@ -33,6 +34,7 @@ const UserSchema = new mongoose.Schema(
     },
     img: {
       type: String,
+      default: "http://localhost:8080/contact.png",
     },
     isAdmin: {
       type: Boolean,

@@ -1,0 +1,8 @@
+.foot {
+    position: relative;
+    background-color: rgb(44, 44, 44);
+    color: rgb(186, 186, 186);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

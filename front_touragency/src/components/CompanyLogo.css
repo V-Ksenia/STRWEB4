@@ -1,0 +1,13 @@
+.compLogo {
+    font-size: 35px;
+    font: 'Geramond';
+    font-kerning: normal; 
+    letter-spacing: -3px;
+    font-variant: small-caps; 
+    text-transform: lowercase;
+}
+
+.logoLink {
+    text-decoration: none !important;
+    color: rgb(44, 44, 44) !important;
+}

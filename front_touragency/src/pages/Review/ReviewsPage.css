@@ -1,0 +1,75 @@
+.revFormContainer {
+    background-color: rgb(44, 44, 44);
+    padding: 20px;
+    color: rgb(206, 206, 206);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reviewForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.reviewForm input {
+    width: 200px;
+}
+.reviewForm
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  font-family: 'Geramond';
+}
+
+.longDesc {
+    width: 200px;
+    height: 200px;
+    resize: none;
+    text-align: start !important;
+}
+
+.rating {
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 20px;
+    color: rgb(206, 206, 206);
+    background-color: rgb(44, 44, 44) !important;
+    width: 18px !important;
+    text-align: end;
+    border: none;
+    border-bottom: 1px solid rgb(206, 206, 206);
+}
+
+.revButton {
+    font-size: 18px;
+    width: 80px !important;
+    color: rgb(206, 206, 206);
+    border: 0.5px solid rgb(206, 206, 206);
+    background-color: transparent !important;
+
+}
+.revButton:hover {
+    color: rgb(135, 135, 135);
+    border: 0.5px solid rgb(134, 134, 134);
+}
+
+.review {
+    border: 1px solid black;
+    margin: 20px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+}
+
+.allRev{
+    background-color: rgb(254, 254, 254);
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 20px;
+}

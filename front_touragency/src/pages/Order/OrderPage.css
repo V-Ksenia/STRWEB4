@@ -1,0 +1,26 @@
+.order {
+    display: flex;
+    flex-direction: row;
+    margin: 0 20px;
+    padding: 20px 20px 20px 50px;
+    gap: 250px;
+}
+
+.orderInfo {
+    font-size: 22px;
+}
+
+.order img {
+    border-radius: 20px;
+}
+
+.order button {
+    font-size: 16px;
+}
+
+.orderInfo input {
+    border: none;
+    margin-left: 10px;
+    width: 50px;
+    font-size: 20px;
+}

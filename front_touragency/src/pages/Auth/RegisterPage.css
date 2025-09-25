@@ -1,0 +1,40 @@
+
+.registerForm {
+    background-color: rgba(255, 255, 255, 0.571);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: fit-content;
+    height: 350px;
+    padding: 20px;
+    border-radius: 20px;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.registerForm input {
+    font-size: 18px;
+    border-radius: 10px;
+    width: 200px;
+    overflow: scroll;
+    height: 40px;
+    border: none;
+    text-align: center;
+}
+
+.registerForm input[type=file] {
+    font-size: 14px;
+    border-radius: 0 !important;
+    width: 300px;
+    align-content: center !important;
+}
+
+.registerForm p {
+    font-size: 18px;
+}
+.registerForm button {
+    border: 2px solid rgba(197, 197, 197, 0.896) !important;
+    width: 120px !important;
+}

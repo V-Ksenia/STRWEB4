@@ -1,0 +1,38 @@
+.loginContainer {
+    background-image: url("../../login.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginForm {
+    background-color: rgba(255, 255, 255, 0.571);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: fit-content;
+    min-height: 300px;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 50px;
+}
+
+.loginForm input {
+    font-size: 20px;
+    border-radius: 10px;
+    height: 50px;
+    border: none;
+    text-align: center;
+}
+.loginForm p {
+    font-size: 18px;
+}
+.loginForm button {
+    border: 2px solid rgba(197, 197, 197, 0.896) !important;
+    width: 120px !important;
+}

@@ -1,0 +1,29 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    padding-left: 30px;
+    background-color: rgb(254, 254, 254);
+}
+
+.navbar a {
+    text-decoration: none;
+    color: rgb(44, 44, 44);
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 30px;
+}
+.navbar span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
