@@ -22,5 +22,5 @@ deploy-to-s3:
     script:
         - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
         - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-        - aws s3 sync ./front_touragency/build s3://$S3_BUCKET/
+        - aws s3 sync ./front_touragency/build s3://ksv-demo-bucs3/
         - aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*'
