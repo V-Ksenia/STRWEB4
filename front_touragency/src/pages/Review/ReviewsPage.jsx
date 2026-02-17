@@ -57,7 +57,7 @@ const ReviewsPage = () => {
       throw new Error(errorMessage);
     }
 
-    setReviews(reviews.filter((r) => r._id !== id));
+    //setReviews(reviews.filter((r) => r._id !== id));
   };
 
   const handleSubmit = async (e) => {
@@ -86,7 +86,7 @@ const ReviewsPage = () => {
       }
 
       const revData = await response.json();
-      setReviews([...reviews, revData]);
+      //setReviews([...reviews, revData]);
     } catch (err) {
       setError(err.message);
     }
