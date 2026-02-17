@@ -15,7 +15,7 @@ const ToursPage = () => {
   const fetchTours = async () => {
     try {
       const query = new URLSearchParams(
-        Object.entries(filters).filter(([_, value]) => value)
+        Object.entries(filters).filter(([_, value]) => value),
       ).toString();
 
       const response = await fetch(`http://localhost:8080/api/tours?${query}`);
@@ -44,7 +44,7 @@ const ToursPage = () => {
             fontSize: "45px",
           }}
         >
-          Tours
+          Tours ^_^
         </h1>
 
         <form className="searchForm">
