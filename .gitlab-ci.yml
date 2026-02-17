@@ -8,7 +8,7 @@ build-front:
     script:
         - cd ./front_touragency/
         - npm install 
-        - npm run build
+        - CI=false npm run build
     artifacts:
         expire_in: 1 day
         paths:
