@@ -7,16 +7,20 @@ import "./ReviewsPage.css";
 const ReviewsPage = () => {
   //const [reviews, setReviews] = useState([]);
   const reviews = [{
+    _id: "1",
     title: "четко вообще",
     review: "очень нравится, всем советую",
     rating: 5,
+    
   },
   {
+    _id: "2",
     title: "не оч",
     review: "ну такое, могло быть и лучше",
     rating: 3,
   },
   {
+    _id: "3",
     title: "фу",
     review: "не советую, ужасный сервис",
     rating: 1,
@@ -107,10 +111,10 @@ const ReviewsPage = () => {
             <h1>{review.title}</h1>
             <p>{review.review}</p>
             <p>{review.rating}/5</p>
-            <p>By {review.user.username}</p>
-            <p><b>Created at: {new Date(review.createdAt).toLocaleString()}</b></p>
-            <p><b>Edited at: {new Date(review.updatedAt).toLocaleString()}</b></p>
-            {user && user.details._id === review.user._id && (
+            {/* <p>By {review.user.username}</p> */}
+            {/* <p><b>Created at: {new Date(review.createdAt).toLocaleString()}</b></p>
+            <p><b>Edited at: {new Date(review.updatedAt).toLocaleString()}</b></p> */}
+            {/* {user && user.details._id === review.user._id && (
               <div style={{
                 display: "flex",
                 gap: "20px"
@@ -128,7 +132,7 @@ const ReviewsPage = () => {
                   Delete
                 </button>
               </div>
-            )}
+            )} */}
           </li>
           </div>
         ))}
