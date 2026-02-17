@@ -1,0 +1,25 @@
+stages:
+    - build
+    - deploy
+
+build-front:
+    image: node:20.16
+    stage: build
+    script:
+        - cd ./front_touragency/
+        - npm install --progress=false
+        - npm run build
+    artifacts:
+        expire_in: 1 day
+        paths:
+        - ./front_touragency/build
+
+deploy-to-s3:
+    image:
+        name: amazon/aws-cli:2.2.18
+        entrypoint: [""]
+    stage: deploy
+    script:
+        - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+        - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+        - aws s3 sync ./front_touragency/build s3://ksv-demo-bucs3/
