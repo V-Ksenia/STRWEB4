@@ -5,7 +5,22 @@ import { useNavigate } from "react-router-dom";
 import "./ReviewsPage.css";
 
 const ReviewsPage = () => {
-  const [reviews, setReviews] = useState([]);
+  //const [reviews, setReviews] = useState([]);
+  const reviews = [{
+    title: "четко вообще",
+    review: "очень нравится, всем советую",
+    rating: 5,
+  },
+  {
+    title: "не оч",
+    review: "ну такое, могло быть и лучше",
+    rating: 3,
+  },
+  {
+    title: "фу",
+    review: "не советую, ужасный сервис",
+    rating: 1,
+  }];
   const { user } = useContext(AuthContext);
   const [title, setTitle] = useState("");
   const [review, setDescription] = useState("");
@@ -13,14 +28,14 @@ const ReviewsPage = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    fetch("http://localhost:8080/api/reviews", {
-      credentials: "include",
-    })
-      .then((res) => res.json())
-      .then((data) => setReviews(data))
-      .catch((error) => console.error("Error loading reviews:", error));
-  }, [reviews]);
+  // useEffect(() => {
+  //   fetch("http://localhost:8080/api/reviews", {
+  //     credentials: "include",
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => setReviews(data))
+  //     .catch((error) => console.error("Error loading reviews:", error));
+  // }, [reviews]);
 
   if (!reviews) return <div>Loading...</div>;
 
