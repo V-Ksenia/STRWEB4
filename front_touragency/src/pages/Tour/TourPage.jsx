@@ -14,13 +14,15 @@ const ToursPage = () => {
       price: 1200,
       img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aXRhbHl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
     },
-    { _id: "2",
+    {
+      _id: "2",
       country: "Japan",
       description: "Discover the wonders of Japan with us!",
       duration: 3,
       price: 1500,
       img: "https://images.unsplash.com/photo-1549692520-acc6669e2f0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8amFwYW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
-    }];
+    },
+  ];
 
   const [filters, setFilters] = useState({
     country: "",
@@ -61,7 +63,7 @@ const ToursPage = () => {
             fontSize: "45px",
           }}
         >
-          Tours ^_^
+          Tours ^_^ :3
         </h1>
 
         <form className="searchForm">
