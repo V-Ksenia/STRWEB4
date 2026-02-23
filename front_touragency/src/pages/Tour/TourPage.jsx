@@ -63,7 +63,7 @@ const ToursPage = () => {
             fontSize: "45px",
           }}
         >
-          Tours ^_^ :3
+          Tours ^_^ :3 что-нибудь
         </h1>
 
         <form className="searchForm">
