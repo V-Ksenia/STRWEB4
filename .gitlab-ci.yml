@@ -4,7 +4,9 @@ stages:
     - deploy
 
 terraform-config:
-    image: hashicorp/terraform
+    image: 
+        name: hashicorp/terraform
+        entrypoint: [""]
     stage: infra
     script:
         - terraform init
