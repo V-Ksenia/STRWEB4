@@ -35,13 +35,40 @@ build-front:
         paths:
         - ./front_touragency/build
 
+# deploy-to-s3:
+#     image:
+#         name: amazon/aws-cli:2.2.18
+#         entrypoint: [""]
+#     stage: deploy
+#     script:
+#         - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+#         - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+#         - aws s3 sync ./front_touragency/build s3://$S3_BUCKET/ --delete
+#         - aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*'
+
 deploy-to-s3:
-    image:
-        name: amazon/aws-cli:2.2.18
-        entrypoint: [""]
-    stage: deploy
-    script:
-        - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-        - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-        - aws s3 sync ./front_touragency/build s3://$S3_BUCKET/ --delete
-        - aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*'
+  stage: deploy
+  image: 
+    name: amazon/aws-cli:2.2.18
+    entrypoint: [""]
+  id_tokens:
+    GITLAB_OIDC_TOKEN:
+      aud: https://devops-gitlab.inno.ws
+  variables:
+    AWS_ROLE_ARN: "arn:aws:iam::785867473499:role/roleForOIDC"
+    AWS_DEFAULT_REGION: "eu-north-1"
+  script:
+    - |
+      export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
+      $(aws sts assume-role-with-web-identity \
+      --role-arn ${AWS_ROLE_ARN} \
+      --role-session-name "GitLabCI-${CI_JOB_ID}" \
+      --web-identity-token ${GITLAB_OIDC_TOKEN} \
+      --duration-seconds 3600 \
+      --query 'Credentials.[AccessKeyId,SecretAccessKey,SessionToken]' \
+      --output text))
+    
+    - aws sts get-caller-identity
+    
+    - aws s3 sync ./front_touragency/build s3://$S3_BUCKET/ --delete
+    - aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*'
