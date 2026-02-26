@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+  build:
+    commands:
+      - cd front_touragency
+      - npm install
+      - npm run build
+  post_build:
+    commands:
+      - echo "Packing build..."
+      - cd build && zip -r ../../frontend-build.zip .
+      - cd ../..
+      - aws s3 cp frontend-build.zip s3://frontend-react-from-terr-ksv/build/frontend-build.zip
+      - aws imagebuilder start-image-pipeline-execution --image-pipeline-arn arn:aws:imagebuilder:eu-north-1:785867473499:image-pipeline/pipe-to-build-react
